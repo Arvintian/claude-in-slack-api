@@ -1,4 +1,4 @@
-export const MAX_RETRIES = 180;
+export const MAX_RETRIES = 240;
 
 export const END_TEXT = '_Typing…_';
 

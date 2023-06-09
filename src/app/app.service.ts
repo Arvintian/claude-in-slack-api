@@ -22,6 +22,7 @@ export class AppService {
         await this.slackClient.openChannel();
         await this.slackClient.chat(message);
         const timestamp = Math.floor(Date.now() / 1000);
+        callback(JSON.stringify(this.generateStreamResponse(timestamp, "", STATUS.CONTINUE)), STATUS.CONTINUE)
         await this.slackClient.getReply(null, (message, status) => {
             if (status === STATUS.CONTINUE && message === '') return;
             const completion = this.generateStreamResponse(
